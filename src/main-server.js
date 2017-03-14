@@ -84,7 +84,7 @@ export const createApolloServer = (customOptions = {}, customConfig = {}) => {
 
         // get the login token from the headers request, given by the Meteor's
         // network interface middleware if enabled
-        const loginToken = req.headers['meteor-login-token'];
+        const loginToken = req.headers['meteor-login-token'] || req.headers['authorization'];
 
         // there is a possible current user connected!
         if (loginToken) {
